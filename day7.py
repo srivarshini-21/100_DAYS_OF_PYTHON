@@ -9,7 +9,7 @@ print(chosen_word)
 placeholder=""  # Step 2: Replacing Blanks with guesses
 for c in chosen_word:
     placeholder+="_ "
-print("Your word to choose: ",placeholder)
+print("Your word to guess: ",placeholder)
 game_over=False
 correct_word=[]
 while  not game_over:

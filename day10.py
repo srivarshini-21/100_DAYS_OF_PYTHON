@@ -8,7 +8,7 @@
 # print(merger)
 
 # Day 10 Project - Calculator
-print(r'''
+logo=r'''
  _____________________
 |  _________________  |
 | | JO           0. | |
@@ -22,15 +22,15 @@ print(r'''
 | |___|___|___| |___| |
 | | . | 0 | = | | / | |
 | |___|___|___| |___| |
-|_____________________|''',
-r'''
+|_____________________|'''
+art=r'''
            _            _       _             
           | |          | |     | |            
   ___ __ _| | ___ _   _| | __ _| |_ ___  _ __ 
  / __/ _` | |/ __| | | | |/ _` | __/ _ \| '__|
 | (_| (_| | | (__| |_| | | (_| | || (_) | |   
  \___\__,_|_|\___|\__,_|_|\__,_|\__\___/|_|   
-                                             ''')
+                                             '''
 def add(n1,n2):
     return n1 + n2
 def subtract(n1,n2):
@@ -49,13 +49,28 @@ operations={
     "*":multiply,
     "/":divide,
 }
-n1=int(input("What's the first number? : "))
-for symbol in operations:
-    print(symbol)
-op=input("Pick an operation: \n")
-n2=int(input("What's the next number? : "))
-ans=operations[op](n1,n2)
-print(f"{n1} {op} {n1} = {ans}")
 
+def calculator():
+    print(logo,art)
+    should_continue = True
+    n1=int(input("What's the first number? : "))
+    while should_continue:
+        for symbol in operations:
+            print(symbol)
+        op=input("Pick an operation: \n")
+
+        n2=int(input("What's the next number? : "))
+        ans=operations[op](n1,n2)
+        print(f"{n1} {op} {n2} = {ans}")
+
+        choice = input(f"Type 'yes' if you want to continue with {ans} or type 'no' to start new calculation. \n")
+
+        if choice=="yes":
+            n1=ans
+        else:
+            should_continue=False
+            calculator()
+calculator()
+        
 
 

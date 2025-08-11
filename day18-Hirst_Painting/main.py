@@ -38,3 +38,4 @@ while rows<10:
 
 screen=t.Screen()
 screen.exitonclick()
+let=50

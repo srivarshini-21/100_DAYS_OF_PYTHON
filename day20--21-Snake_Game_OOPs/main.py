@@ -27,12 +27,30 @@ while game_on:
     # Detect collision with food
     if snake.head.distance(food)<20: # Considering the food is 10 x 10 circle we cannot check '==0' condition because that means the snake head has to touch the centre of the circle food
         food.refresh()
+        snake.extend()
         scoreboard.increase_score()
 
     # Detect collision with wall
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290: # -300 < -290 = Wall hit
         game_on=False
         scoreboard.game_over()
+
+    # # Detect collision with tail
+    # for segment in snake.segments:
+    #     if segment==snake.head:
+    #         pass
+    #     elif snake.head.distance(segment)<10:
+    #         game_on=False
+    #         scoreboard.game_over()
+
+    # Detect collision with tail using slicing
+    for segment in snake.segments[1:]:
+        if snake.head.distance(segment)<10:
+            game_on=False
+            scoreboard.game_over()
+
+
+
 
 
 

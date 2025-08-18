@@ -15,11 +15,17 @@ class Snake():
 
     def create_snake(self):
         for pos in START_POS:
-            seg=Turtle("square")
-            seg.color("white")
-            seg.penup()
-            seg.goto(pos)
-            self.segments.append(seg)
+            self.add_segment(pos)
+
+    def add_segment(self, pos):
+        seg=Turtle("square")
+        seg.color("white")
+        seg.penup()
+        seg.goto(pos)
+        self.segments.append(seg)
+
+    def extend(self):
+        self.add_segment(self.segments[-1].pos())
 
     def move(self):
         for seg_num in range(len(self.segments)-1,0,-1): # Start, stop and step index 

@@ -1,0 +1,1 @@
+This is an exampleThis is append function this does not erase current content

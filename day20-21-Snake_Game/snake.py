@@ -55,5 +55,12 @@ class Snake():
 
             self.segments[0].setheading(RIGHT)
 
+    def reset(self):
+        for segment in self.segments:
+            segment.goto(1000,1000) # Send the snake to invisible co ordinates out of the screen
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
 
         
